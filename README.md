@@ -19,56 +19,32 @@ O documento base utilizado neste projeto (`penedo.pdf`) é derivado do artigo ci
 - **ChromaDB:** Banco de dados vetorial para busca semântica.
 - **OpenAI (via OpenRouter):** LLM (GPT-4o-mini) e Embeddings (text-embedding-3-small).
 - **Gradio:** Interface gráfica web para interação amigável.
-- **Python:** Linguagem principal do projeto.
+- **Jupyter Notebook:** Ambiente de execução e documentação.
 
-## 🚀 Como Executar Localmente
+## 🚀 Como Executar
 
 ### 1. Clonar o Repositório
 ```bash
-git clone https://github.com/SEU_USUARIO/chatbot-penedo.git
+git clone https://github.com/joaopcalumby/chatbot-penedo.git
 cd chatbot-penedo
 ```
 
-### 2. Configurar o Ambiente Virtual
-É recomendado o uso de um ambiente virtual (venv):
-```bash
-python -m venv venv
-# No Windows:
-venv\Scripts\activate
-# No Linux/Mac:
-source venv/bin/activate
-```
+### 2. Base de Conhecimento e Dependências
+Certifique-se de que o arquivo `penedo.pdf` está na pasta raiz do projeto. O próprio notebook (`Chatbot_Guia_Penedo.ipynb`) se encarrega de instalar todas as bibliotecas necessárias (como `langchain`, `chromadb`, etc) na sua primeira célula de código, usando comandos do `pip`.
 
-### 3. Instalar as Dependências
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Configurar as Variáveis de Ambiente
-Crie um arquivo `.env` na raiz do projeto com a sua chave da OpenRouter:
-```env
-OPENROUTER_API_KEY=sua_chave_aqui
-```
-
-### 5. Adicionar a Base de Conhecimento
-Certifique-se de que o arquivo `penedo.pdf` está na pasta raiz do projeto. Caso não possua, você pode baixá-lo a partir do artigo referenciado e renomeá-lo.
-
-### 6. Executar a Aplicação
-Para iniciar a interface web com Gradio:
-```bash
-python chatbot.py --mode gradio
-```
-
-Para interagir com o chatbot diretamente pelo terminal:
-```bash
-python chatbot.py --mode terminal
-```
+### 3. Executar o Notebook
+Abra o arquivo `Chatbot_Guia_Penedo.ipynb` no **Jupyter Notebook**, **JupyterLab** ou no **VS Code**. 
+Siga executando as células em ordem:
+- A primeira célula irá instalar as dependências e pedir que você insira a chave da API da OpenRouter.
+- A segunda validará a presença do arquivo PDF (`penedo.pdf`).
+- A terceira criará o motor RAG.
+- As últimas células oferecem a opção de interagir via interface web (Gradio) ou diretamente pelo terminal/console do Jupyter.
 
 ## 📂 Estrutura do Projeto
-- `chatbot.py`: Script principal da aplicação, refatorado seguindo as boas práticas de engenharia de software, separando a lógica de negócios da interface.
-- `requirements.txt`: Lista de bibliotecas necessárias para executar a aplicação.
-- `.env.example`: Exemplo de arquivo de configuração de variáveis de ambiente.
-- `JoaoPedroSCPereira_Projeto_Final_Chatbot.ipynb`: Versão original em Jupyter Notebook do projeto.
+- `Chatbot_Guia_Penedo.ipynb`: O código principal de todo o fluxo, organizado, refatorado e bem documentado em Markdown.
+- `penedo.pdf`: O documento base que fornece contexto ao chatbot (adicionado localmente).
+- `README.md`: Este arquivo com as instruções e documentação do projeto.
+- `.gitignore`: Configuração para impedir que arquivos indesejados (como o banco do ChromaDB) sejam "comitados" por engano.
 
 ## 👨‍💻 Autor
 **João Pedro Silva Calumby Pereira**
